@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?use version="5.1.0"?>
+<plugin name="ConverterXMI" version="5.1.0-r1">
+	<actions>
+		<action label="Convert model to XMI" icon="resources/ObjectToClassView.gif"
+			class="src.main.plugin.MainConverterPlugin" tooltip="Start connection with Digital Twin"
+			menu="View" menuitem="XMI" toolbaritem="plugins"
+			id="src.main.plugin.MainConverterPlugin">
+		</action>
+	</actions>
+</plugin>
