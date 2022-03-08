@@ -1,4 +1,8 @@
 Manifest-Version: 1.0
+Plugin-Name: DigitalTwinConnector
+Plugin-Version: 0.1
+Plugin-Publisher: ateneaResearchGroup
+Main-Class: main.plugin.MainConverter
 Bundle-ManifestVersion: 2
 Bundle-Name: ModelConverter
 Bundle-SymbolicName: modelConverter;singleton:=true

@@ -3,9 +3,9 @@
 <plugin name="ConverterXMI" version="5.1.0-r1">
 	<actions>
 		<action label="Convert model to XMI" icon="resources/ObjectToClassView.gif"
-			class="src.main.plugin.MainConverterPlugin" tooltip="Start connection with Digital Twin"
+			class="main.plugin.MainConverterPlugin" tooltip="XMI Converter"
 			menu="View" menuitem="XMI" toolbaritem="plugins"
-			id="src.main.plugin.MainConverterPlugin">
+			id="main.plugin.MainConverterPlugin">
 		</action>
 	</actions>
 </plugin>
