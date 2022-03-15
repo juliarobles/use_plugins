@@ -31,9 +31,12 @@
 		<fileset dir="lib">
 			<include name="**/*.jar"/>
 		</fileset>
-		<fileset dir="${utilities.dir}">
-		       <include name="*.jar"/>
+		<fileset dir="lib/dependencies">
+			<include name="**/*.jar"/>
 		</fileset>
+		<!--<fileset dir="${utilities.dir}">
+		       <include name="*.jar"/>
+		</fileset>-->
 	</path>
 
 	<target name="setversion">
