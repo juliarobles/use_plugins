@@ -2,7 +2,7 @@
 
 	<!-- Version Format: <compatible USE version>-r<n-th release for this USE version>
 	     e.g.: 4.0-r1 -->
-	<property name="use.version" value="5.1.0" />
+	<property name="use.version" value="6.0.0" />
 	<property name="release.number" value="1" />
 	
 	<property name="version" value="${use.version}-r${release.number}" />
@@ -28,15 +28,17 @@
 		<!--<fileset dir="${plugin.lib}" includes="*.jar" />-->
 		<!--<fileset dir="${use.path}/lib" includes="*.jar" excludes="use*" />-->
 		<!-- <pathelement location="${use.classes}"/> -->
-		<fileset dir="lib">
-			<include name="**/*.jar"/>
+		<!--<fileset dir="lib">
+			<include name="*.jar"/>
 		</fileset>
 		<fileset dir="lib/dependencies">
-			<include name="**/*.jar"/>
+			<include name="*.jar"/>
 		</fileset>
-		<!--<fileset dir="${utilities.dir}">
+		<fileset dir="${utilities.dir}">
 		       <include name="*.jar"/>
 		</fileset>-->
+		<fileset dir="${plugin.lib}" includes="*.jar" />
+		<fileset dir="${plugin.lib}/dependencies" includes="*.jar" />
 	</path>
 
 	<target name="setversion">
@@ -68,6 +70,50 @@
 	<target name="jar" depends="compile">
 		<jar destfile="dist/${filename}" basedir="build" manifest="META-INF/MANIFEST.MF">
 			<fileset dir="." includes="useplugin.xml" />
+			<zipfileset src="lib\modelConverter.use_language.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\use.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\use-gui.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\use-runtime.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\com.google.guava_30.1.0.v20210127-2300.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\com.google.inject_3.0.0.v201605172100.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\com.ibm.icu_67.1.0.v20200706-1749.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\javax.inject_1.0.0.v20091030.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.apache.commons.cli_1.4.0.v20200417-1444.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.core.contenttype-3.8.100.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.core.jobs-3.12.100.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.core.runtime-3.14.0.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.emf.codegen.ecore_2.25.0.v20201231-0738.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.emf.codegen_2.21.0.v20200708-0547.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.emf.common_2.22.0.v20210114-1734.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.emf.ecore.xmi_2.16.0.v20190528-0725.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.emf.ecore_2.23.0.v20200630-0516.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.emf.mapping.ecore2xml_2.11.0.v20180706-1146.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.emf.mwe.core_1.6.1.v20210218-2134.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.emf.mwe2.lib_2.12.1.v20210218-2134.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.emf.mwe2.runtime_2.12.1.v20210218-2134.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.equinox.app-1.6.100.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.equinox.common-3.16.0.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.equinox.preferences-3.9.100.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.equinox.registry-3.11.100.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.osgi-3.17.200.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.uml2.common_2.5.0.v20210228-1829.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.uml2.types_2.5.0.v20210228-1829.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.uml2.uml.profile.standard_1.5.0.v20210228-1829.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.uml2.uml.resources_5.5.0.v20210228-1829.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.uml2.uml_5.5.0.v20210228-1829.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.xpand_2.2.0.v201605260315.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.xtend.typesystem.emf_2.2.0.v201605260315.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.xtend_2.2.0.v201605260315.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.xtext.generator_2.25.0.v20210301-0909.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.xtext.util_2.25.0.v20210301-0843.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.xtext.xbase.lib_2.25.0.v20210301-0821.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.xtext.xtext.generator_2.25.0.v20210301-0843.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.eclipse.xtext_2.25.0.v20210301-0843.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.junit.jupiter.api_5.7.1.v20210222-1948.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.junit.jupiter.engine_5.7.1.v20210222-1948.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.junit.platform.commons_1.7.1.v20210222-1948.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.junit.platform.engine_1.7.1.v20210222-1948.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib\dependencies\org.opentest4j_1.2.0.v20190826-0900.jar" excludes="META-INF/*"/>
 		</jar>
 	</target>
 
