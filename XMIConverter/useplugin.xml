@@ -7,5 +7,25 @@
 			menu="View" menuitem="XMI" toolbaritem="plugins"
 			id="main.plugin.MainConverterPlugin">
 		</action>
+		<action label="Export to XMI" icon="resources/export.png"
+			class="main.plugin.gui.ActionExportXMI" tooltip="Export to XMI"
+			menu="XMI" menuitem="Export to XMI" toolbaritem="Export to XMI"
+			id="main.plugin.gui.ActionExportXMI">
+		</action>
+		<action label="Import from XMI" icon="resources/import.png"
+			class="main.plugin.gui.ActionImportXMI" tooltip="Import from XMI"
+			menu="XMI" menuitem="Import from XMI" toolbaritem="Import from XMI"
+			id="main.plugin.gui.ActionImportXMI">
+		</action>
 	</actions>
+	<commands>
+		<command class="main.plugin.cmd.ExportXMICmd"
+			id="main.plugin.cmd.ExportXMICmd" shellcmd="export xmi"
+			label="Export to XMI" help="Exports USE Model to XMI File">
+		</command>
+		<command class="main.plugin.cmd.ImportXMICmd"
+			id="main.plugin.cmd.ImportXMICmd" shellcmd="import xmi"
+			label="Import from XMI" help="Imports UML Model from XMI File">
+		</command>
+	</commands>
 </plugin>

@@ -74,6 +74,7 @@
 			<zipfileset src="lib\use.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib\use-gui.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib\use-runtime.jar" excludes="META-INF/*"/>
+			<fileset dir="lib\dependencies" includes="plugin.properties" />
 			<zipfileset src="lib\dependencies\com.google.guava_30.1.0.v20210127-2300.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib\dependencies\com.google.inject_3.0.0.v201605172100.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib\dependencies\com.ibm.icu_67.1.0.v20200706-1749.jar" excludes="META-INF/*"/>
