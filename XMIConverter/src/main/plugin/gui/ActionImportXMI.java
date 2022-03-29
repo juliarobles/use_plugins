@@ -1,5 +1,7 @@
 package main.plugin.gui;
 
+import javax.swing.JOptionPane;
+
 import org.tzi.use.gui.main.MainWindow;
 import org.tzi.use.runtime.gui.IPluginAction;
 import org.tzi.use.runtime.gui.IPluginActionDelegate;
@@ -23,8 +25,19 @@ public class ActionImportXMI implements IPluginActionDelegate {
 		// Getting MainWindow object from Proxy
 		MainWindow fMainWindow = pluginAction.getParent();
 
-		XMIHandlerView view = new XMIHandlerView(fMainWindow, pluginAction.getSession(), XMIHandlerView.ViewMode.IMPORT);
-		view.setVisible(true);
+		if(pluginAction.getSession().hasSystem()) {
+			Object[] options = { "Yes", "No" };
+			int option = JOptionPane.showOptionDialog(fMainWindow,
+					"Do you want to import a XMI file and discard your current system state?",
+					"XMI Converter", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+					options, options[1]);
+			if (option == JOptionPane.YES_OPTION) {
+				XMIHandlerView view = new XMIHandlerView(fMainWindow, pluginAction.getSession(), XMIHandlerView.ViewMode.IMPORT);
+				view.setVisible(true);
+			} else {
+				return;
+			}
+		}
 	}
 
 }
