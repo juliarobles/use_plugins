@@ -4,12 +4,12 @@
 	<actions>
 		<action label="Export to XMI" icon="resources/export.png"
 			class="main.plugin.gui.ActionExportXMI" tooltip="Export to XMI"
-			menu="XMI" menuitem="Export to XMI" toolbaritem="Export to XMI"
+			menu="XMI" menuitem="Export to XMI" toolbaritem="plugins"
 			id="main.plugin.gui.ActionExportXMI">
 		</action>
 		<action label="Import from XMI" icon="resources/import.png"
 			class="main.plugin.gui.ActionImportXMI" tooltip="Import from XMI"
-			menu="XMI" menuitem="Import from XMI" toolbaritem="Import from XMI"
+			menu="XMI" menuitem="Import from XMI" toolbaritem="plugins"
 			id="main.plugin.gui.ActionImportXMI">
 		</action>
 	</actions>

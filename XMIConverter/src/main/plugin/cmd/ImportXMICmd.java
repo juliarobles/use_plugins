@@ -10,9 +10,16 @@ public class ImportXMICmd implements IPluginShellCmdDelegate {
 
 	@Override
 	public final void performCommand(IPluginShellCmd pluginCommand) {
-		File xmiFile = new File(pluginCommand.getCmdArguments().trim());
-		XMIHandlerPlugin.getXMIHandlerPluginInstance().importFromXMI(xmiFile,
-				pluginCommand.getSession(), null);
+		String[] args = pluginCommand.getCmdArgumentList();
+		if(args.length > 1) {
+			File xmiFile = new File(args[0].trim());
+			File pathGeneratedUse = new File(args[1].trim());
+			XMIHandlerPlugin.getXMIHandlerPluginInstance().importFromXMI(xmiFile, pathGeneratedUse,
+					pluginCommand.getSession(), null);
+		} else {
+			System.out.println("Not enough arguments have been introduced.");
+		}
+		
 	}
 
 }

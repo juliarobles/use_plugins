@@ -23,6 +23,7 @@ public class General {
 	
 	public static void generateUML(String source, String destiny) {
 		File tempFile = SingleQuotes.modifyFileBeforeGeneratingOnlyBeginEnd(source);
+		System.out.println("Temp file: " + tempFile.getAbsolutePath());
 		Injector injector = new USEStandaloneSetup().createInjectorAndDoEMFRegistration();
         ResourceSet rs = injector.getInstance(ResourceSet.class);
         Resource r = rs.getResource(URI.createFileURI(tempFile.getAbsolutePath()), true);

@@ -51,10 +51,10 @@ public class XMIHandlerPlugin extends Plugin {
 		}
 	}
 
-	public void importFromXMI(File file, Session session, PrintWriter logWriter) {
+	public void importFromXMI(File file, File pathGeneratedUse, Session session, PrintWriter logWriter) {
 		Utils.setLogWriter(logWriter);
 		try {
-			Path destinyPath = Files.createTempDirectory(PLUGIN_NAME);
+			Path destinyPath = pathGeneratedUse.toPath();
 			String destiny = destinyPath.toString();
 			Utils.out(destiny);
 			String source = file.getAbsolutePath();
