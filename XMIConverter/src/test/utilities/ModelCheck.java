@@ -1,12 +1,5 @@
 package test.utilities;
 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import com.google.inject.Injector;
-
-import modelConverter.use_language.USEStandaloneSetup;
-
 public class ModelCheck {
 	
 	public static boolean checkModelsAreEquivalentUSEUML(String modelUSE, String modelUML) {

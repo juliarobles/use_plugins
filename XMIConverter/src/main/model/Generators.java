@@ -9,7 +9,7 @@ public class Generators {
 	
 	public static void chooseGeneratorBySourceFile(String source, String destiny) {
 		try {
-			if(source == null || source.isBlank() || destiny == null || destiny.isBlank()) {
+			if(source == null || source.trim().isEmpty() || destiny == null || destiny.trim().isEmpty()) {
 				System.err.println("ERROR: Both fields must be completed.\n");
 			} else if (!Files.exists(Paths.get(source))) {
 				System.err.println("ERROR: Invalid source path.\n");

@@ -68,13 +68,13 @@ public class TModel {
 			Collections.sort(classes, new Comparator<TClass>() {
 				@Override
 				public int compare(TClass p1, TClass p2) {
-					return ((p1.getName().isBlank() || p1.getName().contains("unnamed"))) ? -1 : p1.getName().compareTo(p2.getName());
+					return ((p1.getName().trim().isEmpty() || p1.getName().contains("unnamed"))) ? -1 : p1.getName().compareTo(p2.getName());
 				}
 			});
 			Collections.sort(other.classes, new Comparator<TClass>() {
 				@Override
 				public int compare(TClass p1, TClass p2) {
-					return ((p1.getName().isBlank() || p1.getName().contains("unnamed"))) ? -1 : p1.getName().compareTo(p2.getName());
+					return ((p1.getName().trim().isEmpty() || p1.getName().contains("unnamed"))) ? -1 : p1.getName().compareTo(p2.getName());
 				}
 			});
 			if (!classes.equals(other.classes))

@@ -51,7 +51,7 @@ public class U1_Class {
 		boolean primero = true;
 		StringBuilder sBuilder = new StringBuilder("");
 		
-		if(classToAnalyze.isAbstract()) { //ABSTRACTA
+		if(classToAnalyze.isAbstract()) { //ABSTRACTA?
 			sBuilder.append("abstract ");
 		}
 		
@@ -89,7 +89,7 @@ public class U1_Class {
 			for(Property property : attributes) {
 				String defaultValue = "";
 				U9_Auxiliary.CollectionName collection = null;
-				if(property.getDefault() != null && !property.getDefault().isBlank()) {
+				if(property.getDefault() != null && !property.getDefault().trim().isEmpty()) {
 					defaultValue = (property.isDerived()) ? (" derive: " + property.getDefault()) : (" init: " + property.getDefault());
 				}
 				if(property.getUpperValue() != null && !property.getUpperValue().stringValue().equals("1")) {

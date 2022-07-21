@@ -13,7 +13,6 @@ public class prueba {
 		String lectura;
 		String destino = "aaa.use";
 		
-		
 		do {
 			
 			System.out.println("Introduzca el nombre del archivo .uml o .use que quiere convertir en el formato contrario o escriba FIN para salir");

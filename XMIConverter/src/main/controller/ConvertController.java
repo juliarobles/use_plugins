@@ -5,11 +5,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JProgressBar;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
-import main.model.Generators;
-import main.model.Generators;
 
 public class ConvertController implements MouseListener{
 

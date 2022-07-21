@@ -67,12 +67,12 @@ public class TAssociation {
 			if (!memberEnds.equals(other.memberEnds)) return false;
 		}
 		if (name == null) {
-			if (other.name != null && !other.name.contains("unnamed") && !other.name.isBlank())
+			if (other.name != null && !other.name.contains("unnamed") && !other.name.trim().isEmpty())
 				return false;
 		} else if (!name.equals(other.name)
-					&& !(name.isBlank() && other.name == null)
-					&& !(name.isBlank() && other.name.contains("unnamed"))
-					&& !((other.name == null || other.name.isBlank()) && name.contains("unnamed"))
+					&& !(name.trim().isEmpty() && other.name == null)
+					&& !(name.trim().isEmpty() && other.name.contains("unnamed"))
+					&& !((other.name == null || other.name.trim().isEmpty()) && name.contains("unnamed"))
 					&& !((other.name != null && name.contains(other.name.substring(0, other.name.length()-1))))
 					&& !((other.name != null && other.name.contains(name.substring(0, name.length()-1))))
 					&& !((other.name != null && name.contains(other.name) && name.length() == other.name.length()+1))

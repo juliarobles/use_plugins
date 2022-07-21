@@ -65,20 +65,20 @@ class TOperation {
 			return false;
 		TOperation other = (TOperation) obj;
 		if (bodyCondition == null) {
-			if (other.bodyCondition != null && !other.bodyCondition.isBlank() && !other.bodyCondition.equals("USE") && !other.bodyCondition.equals("true"))
+			if (other.bodyCondition != null && !other.bodyCondition.trim().isEmpty() && !other.bodyCondition.equals("USE") && !other.bodyCondition.equals("true"))
 				return false;
 		} else if (!bodyCondition.equals(other.bodyCondition)
-					&& (other.bodyCondition != null && !other.bodyCondition.equals("true") && bodyCondition.isBlank())
+					&& (other.bodyCondition != null && !other.bodyCondition.equals("true") && bodyCondition.trim().isEmpty())
 					&& !other.bodyCondition.equals("USE")
 					&& !bodyCondition.equals("USE"))
 			return false;
 		if (name == null) {
-			if (other.name != null && !other.name.contains("unnamed") && !other.name.isBlank())
+			if (other.name != null && !other.name.contains("unnamed") && !other.name.trim().isEmpty())
 				return false;
 		} else if (!name.equals(other.name)
-					&& !(name.isBlank() && other.name == null)
-					&& !(name.isBlank() && other.name.contains("unnamed"))
-					&& !((other.name == null || other.name.isBlank()) && name.contains("unnamed"))
+					&& !(name.trim().isEmpty() && other.name == null)
+					&& !(name.trim().isEmpty() && other.name.contains("unnamed"))
+					&& !((other.name == null || other.name.trim().isEmpty()) && name.contains("unnamed"))
 					&& !((other.name != null && name.contains(other.name) && name.length() == other.name.length()+1))
 					&& !((other.name != null && other.name.contains(name) && other.name.length() == name.length()+1)))
 			return false;

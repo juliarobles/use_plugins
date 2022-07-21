@@ -33,7 +33,7 @@ public class U9_Auxiliary {
 	
 	static String checkRoleNotNull(String role, String classRole, List<String> nameClassMemberEnd) {
 		boolean reflexive = false;
-		if (role != null && !role.isBlank()) {
+		if (role != null && !role.trim().isEmpty()) {
 			for(String nameClass : nameClassMemberEnd) {
 				if(!nameClass.equals(classRole) || reflexive) {
 					role = searchRoleExist(role, nameClass);
@@ -82,7 +82,7 @@ public class U9_Auxiliary {
 	}
 	
 	static String checkUnnamed(String name, List<String> namesUsed, U9_CountUnnamed countUnnamed) {
-		if(name == null || name.isBlank()) {
+		if(name == null || name.trim().isEmpty()) {
 			countUnnamed.countUnnamedAddOne();
 			System.out.println("WARNING: Element with no name found. Fixed by assigning name unnamed" + countUnnamed.getCountUnnamed() + ".");
 			return "unnamed" + countUnnamed.getCountUnnamed();

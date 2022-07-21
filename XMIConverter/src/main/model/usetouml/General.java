@@ -5,6 +5,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.generator.GeneratorContext;
 import org.eclipse.xtext.generator.GeneratorDelegate;
 import org.eclipse.xtext.generator.JavaIoFileSystemAccess;
@@ -23,20 +24,19 @@ public class General {
 	
 	public static void generateUML(String source, String destiny) {
 		File tempFile = SingleQuotes.modifyFileBeforeGeneratingOnlyBeginEnd(source);
-		System.out.println("Temp file: " + tempFile.getAbsolutePath());
 		Injector injector = new USEStandaloneSetup().createInjectorAndDoEMFRegistration();
         ResourceSet rs = injector.getInstance(ResourceSet.class);
         Resource r = rs.getResource(URI.createFileURI(tempFile.getAbsolutePath()), true);
-
-        IResourceValidator validator = injector.getInstance(IResourceValidator.class);
-        List<Issue> issues = validator.validate(r, CheckMode.ALL, CancelIndicator.NullImpl);
+        
+        //IResourceValidator validator = injector.getInstance(IResourceValidator.class);
+        //List<Issue> issues = validator.validate(r, CheckMode.ALL, CancelIndicator.NullImpl);
         boolean continueb = true;
-        for (Issue i : issues) {
+        /*for (Issue i : issues) {
         	System.out.println(i);
         	if(i.isSyntaxError()) {
         		continueb = false;
         	}
-        }
+        }*/
         
         if(continueb) {
         	GeneratorDelegate generator = injector.getInstance(GeneratorDelegate.class);

@@ -2,7 +2,6 @@ package main.controller;
 
 import javax.swing.JButton;
 import javax.swing.JProgressBar;
-import javax.swing.JTextArea;
 import javax.swing.SwingWorker;
 
 import main.model.Generators;

@@ -33,9 +33,6 @@ import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.Vertex;
 import org.eclipse.uml2.uml.resource.UMLResource;
 
-import main.model.umltouse.General;
-import main.model.umltouse.U9_Auxiliary;
-
 import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.AssociationClass;
 import org.eclipse.uml2.uml.CallEvent;
@@ -89,12 +86,12 @@ public class MC_UMLtoTModel {
 					if (operation.getBodyCondition() != null && operation.getBodyCondition().getSpecification() != null) tOperation.setBodyCondition(operation.getBodyCondition().getSpecification().stringValue());
 					for(Constraint constraint : operation.getPreconditions()) {
 						TConstraint tCondition = new TConstraint(constraint.getName());
-						if(constraint.getSpecification() != null && constraint.getSpecification().stringValue() != null && !constraint.getSpecification().stringValue().isBlank()) tCondition.setOcl(constraint.getSpecification().stringValue());
+						if(constraint.getSpecification() != null && constraint.getSpecification().stringValue() != null && !constraint.getSpecification().stringValue().trim().isEmpty()) tCondition.setOcl(constraint.getSpecification().stringValue());
 						tOperation.addPreconditions(tCondition);
 					}
 					for(Constraint constraint : operation.getPostconditions()) {
 						TConstraint tCondition = new TConstraint(constraint.getName());
-						if(constraint.getSpecification() != null && constraint.getSpecification().stringValue() != null && !constraint.getSpecification().stringValue().isBlank()) tCondition.setOcl(constraint.getSpecification().stringValue());
+						if(constraint.getSpecification() != null && constraint.getSpecification().stringValue() != null && !constraint.getSpecification().stringValue().trim().isEmpty()) tCondition.setOcl(constraint.getSpecification().stringValue());
 						tOperation.addPostconditions(tCondition);
 					}
 					tClass.addOperation(tOperation);
@@ -112,7 +109,7 @@ public class MC_UMLtoTModel {
 								TState tState = new TState(vertex.getName());
 								if(vertex instanceof FinalState) tState.setFinal(true);
 								Constraint constraint = ((State)vertex).getStateInvariant();
-								if(constraint != null && constraint.getSpecification() != null && !constraint.getSpecification().stringValue().isBlank()) tState.setInvariant(constraint.getSpecification().stringValue());
+								if(constraint != null && constraint.getSpecification() != null && !constraint.getSpecification().stringValue().trim().isEmpty()) tState.setInvariant(constraint.getSpecification().stringValue());
 								tStateMachine.addState(tState);
 							} else {
 								TState tState = new TState(vertex.getName());
@@ -122,10 +119,10 @@ public class MC_UMLtoTModel {
 						}
 						for(Transition transition : region.getTransitions()) {
 							TTransition tTransition = new TTransition(transition.getTarget().getName(), transition.getSource().getName());
-							if(transition.getGuard() != null && transition.getGuard().getSpecification() != null && transition.getGuard().getSpecification().stringValue() != null  && !transition.getGuard().getSpecification().stringValue().isBlank()) tTransition.setPreCondition(transition.getGuard().getSpecification().stringValue());
+							if(transition.getGuard() != null && transition.getGuard().getSpecification() != null && transition.getGuard().getSpecification().stringValue() != null  && !transition.getGuard().getSpecification().stringValue().trim().isEmpty()) tTransition.setPreCondition(transition.getGuard().getSpecification().stringValue());
 							EList<Constraint> postConditions = transition.getOwnedRules();
 							if(transition.getGuard() != null) postConditions.remove(transition.getGuard());
-							if(postConditions.size() > 0 && postConditions.get(0) != null && postConditions.get(0).getSpecification() != null && postConditions.get(0).getSpecification().stringValue() != null && !postConditions.get(0).getSpecification().stringValue().isBlank()) tTransition.setPostCondition(postConditions.get(0).getSpecification().stringValue());
+							if(postConditions.size() > 0 && postConditions.get(0) != null && postConditions.get(0).getSpecification() != null && postConditions.get(0).getSpecification().stringValue() != null && !postConditions.get(0).getSpecification().stringValue().trim().isEmpty()) tTransition.setPostCondition(postConditions.get(0).getSpecification().stringValue());
 							if(transition.getTriggers().size() > 0) tTransition.setOperation(((CallEvent)transition.getTriggers().get(0).getEvent()).getOperation().getName());
 							tStateMachine.addTransition(tTransition);
 						}

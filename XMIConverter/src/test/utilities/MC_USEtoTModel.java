@@ -1,9 +1,7 @@
 package test.utilities;
 
 import java.io.File;
-import java.sql.Struct;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -216,10 +214,10 @@ public class MC_USEtoTModel {
 	}
 	
 	private static void addConditionsToOperation(EList<ConditionType> conditions, TOperation tOperation) {
-		for(Precondition precondition : conditions.stream().filter(sc -> sc instanceof Precondition).map (sc -> (Precondition) sc).toList()) {
+		for(Precondition precondition : conditions.stream().filter(sc -> sc instanceof Precondition).map (sc -> (Precondition) sc).collect(Collectors.toList())) {
 			tOperation.addPreconditions(new TConstraint(precondition.getName(), "USE"));
 		}
-		for(Postcondition postcondition : conditions.stream().filter(sc -> sc instanceof Postcondition).map (sc -> (Postcondition) sc).toList()) {
+		for(Postcondition postcondition : conditions.stream().filter(sc -> sc instanceof Postcondition).map (sc -> (Postcondition) sc).collect(Collectors.toList())) {
 			tOperation.addPostconditions(new TConstraint(postcondition.getName(), "USE"));
 		}
 	}

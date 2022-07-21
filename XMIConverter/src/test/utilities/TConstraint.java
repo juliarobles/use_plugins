@@ -37,24 +37,24 @@ class TConstraint {
 			return false;
 		TConstraint other = (TConstraint) obj;
 		if (name == null) {
-			if (other.name != null && !other.name.contains("unnamed") && !other.name.isBlank())
+			if (other.name != null && !other.name.contains("unnamed") && !other.name.trim().isEmpty())
 				return false;
 		} else if (!name.equals(other.name)
-					&& !(name.isBlank() && other.name == null)
-					&& !(name.isBlank() && other.name.contains("unnamed"))
-					&& !((other.name == null || other.name.isBlank()) && name.contains("unnamed"))
+					&& !(name.trim().isEmpty() && other.name == null)
+					&& !(name.trim().isEmpty() && other.name.contains("unnamed"))
+					&& !((other.name == null || other.name.trim().isEmpty()) && name.contains("unnamed"))
 					&& !((other.name != null && name.contains(other.name) && name.length() == other.name.length()+1))
 					&& !((other.name != null && other.name.contains(name) && other.name.length() == name.length()+1)))
 			return false;
 		if (ocl == null) {
-			if (other.ocl != null && !other.ocl.isBlank() && !other.ocl.equals("true") && !other.ocl.equals("USE"))
+			if (other.ocl != null && !other.ocl.trim().isEmpty() && !other.ocl.equals("true") && !other.ocl.equals("USE"))
 				return false;
 		} else if (!ocl.equals(other.ocl)
-					&& !((other.ocl == null || other.ocl.isBlank()) && ocl.equals("true"))
-					&& !(ocl.isBlank() && other.ocl != null && other.ocl.equals("true"))
-					&& !(other.ocl == null && ocl.isBlank())
+					&& !((other.ocl == null || other.ocl.trim().isEmpty()) && ocl.equals("true"))
+					&& !(ocl.trim().isEmpty() && other.ocl != null && other.ocl.equals("true"))
+					&& !(other.ocl == null && ocl.trim().isEmpty())
 					&& !(other.ocl != null && other.ocl.equals("USE")) && !ocl.equals("USE")
-					&& !(other.ocl != null && other.ocl.strip().replaceAll(" ", "") != null && ocl.equals(other.ocl.strip().replaceAll(" ", ""))))
+					&& !(other.ocl != null && other.ocl.trim().replaceAll(" ", "") != null && ocl.equals(other.ocl.trim().replaceAll(" ", ""))))
 			return false;
 		return true;
 	}

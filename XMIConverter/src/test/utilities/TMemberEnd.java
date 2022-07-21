@@ -52,22 +52,22 @@ public class TMemberEnd {
 		} else if (!lower.equals(other.lower))
 			return false;
 		if (nameClass == null) {
-			if (other.nameClass != null && !other.nameClass.contains("unnamed") && !other.nameClass.isBlank())
+			if (other.nameClass != null && !other.nameClass.contains("unnamed") && !other.nameClass.trim().isEmpty())
 				return false;
 		} else if (!nameClass.equals(other.nameClass)
-				&& !(nameClass.isBlank() && other.nameClass == null)
-				&& !(nameClass.isBlank() && other.nameClass.contains("unnamed"))
-				&& !((other.nameClass == null || other.nameClass.isBlank()) && nameClass.contains("unnamed"))
+				&& !(nameClass.trim().isEmpty() && other.nameClass == null)
+				&& !(nameClass.trim().isEmpty() && other.nameClass.contains("unnamed"))
+				&& !((other.nameClass == null || other.nameClass.trim().isEmpty()) && nameClass.contains("unnamed"))
 				&& !((other.nameClass != null && nameClass.contains(other.nameClass) && nameClass.length() == other.nameClass.length()+1))
 				&& !((other.nameClass != null && other.nameClass.contains(nameClass) && other.nameClass.length() == nameClass.length()+1)))
 			return false;
 		if (role == null) {
-			if (other.role != null && !other.role.isBlank() && !other.role.contains(nameClass.toLowerCase()))
+			if (other.role != null && !other.role.trim().isEmpty() && !other.role.contains(nameClass.toLowerCase()))
 				return false;
 		} else if (!role.equals(other.role)
-					&& !(role.isBlank() && other.role == null)
-					&& !(role.isBlank() && other.role != null && other.role.contains(nameClass.toLowerCase()))
-					&& !((other.role == null || other.role.isBlank()) && role.contains(nameClass.toLowerCase()))
+					&& !(role.trim().isEmpty() && other.role == null)
+					&& !(role.trim().isEmpty() && other.role != null && other.role.contains(nameClass.toLowerCase()))
+					&& !((other.role == null || other.role.trim().isEmpty()) && role.contains(nameClass.toLowerCase()))
 					&& !((other.role != null && role.contains(other.role.substring(0, other.role.length()-1))))
 					&& !((other.role != null && other.role.contains(role.substring(0, role.length()-1))))
 					&& !((other.role != null && role.contains(other.role) && role.length() == other.role.length()+1))

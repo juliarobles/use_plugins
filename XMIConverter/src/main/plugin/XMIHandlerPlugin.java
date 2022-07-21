@@ -10,7 +10,6 @@ import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.Optional;
 
-import org.tzi.use.gui.main.MainWindow;
 import org.tzi.use.main.Session;
 import org.tzi.use.parser.use.USECompiler;
 import org.tzi.use.runtime.impl.Plugin;

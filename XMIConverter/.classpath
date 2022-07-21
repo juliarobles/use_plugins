@@ -1,47 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="lib" path="lib/use.jar" sourcepath="lib/use.jar"/>
-	<classpathentry kind="lib" path="lib/use-runtime.jar"/>
-	<classpathentry kind="lib" path="lib/modelConverter.use_language.jar"/>
 	<classpathentry kind="lib" path="lib/use-gui.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/com.google.guava_30.1.0.v20210127-2300.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/com.google.inject_3.0.0.v201605172100.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/com.ibm.icu_67.1.0.v20200706-1749.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/javax.inject_1.0.0.v20091030.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.apache.commons.cli_1.4.0.v20200417-1444.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.emf.codegen_2.21.0.v20200708-0547.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.emf.codegen.ecore_2.25.0.v20201231-0738.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.emf.common_2.22.0.v20210114-1734.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.emf.ecore_2.23.0.v20200630-0516.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.emf.ecore.xmi_2.16.0.v20190528-0725.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.emf.mapping.ecore2xml_2.11.0.v20180706-1146.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.emf.mwe.core_1.6.1.v20210218-2134.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.emf.mwe2.lib_2.12.1.v20210218-2134.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.emf.mwe2.runtime_2.12.1.v20210218-2134.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.uml2.common_2.5.0.v20210228-1829.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.uml2.types_2.5.0.v20210228-1829.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.uml2.uml_5.5.0.v20210228-1829.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.uml2.uml.profile.standard_1.5.0.v20210228-1829.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.uml2.uml.resources_5.5.0.v20210228-1829.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.xpand_2.2.0.v201605260315.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.xtend_2.2.0.v201605260315.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.xtend.typesystem.emf_2.2.0.v201605260315.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.xtext_2.25.0.v20210301-0843.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.xtext.generator_2.25.0.v20210301-0909.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.xtext.util_2.25.0.v20210301-0843.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.xtext.xbase.lib_2.25.0.v20210301-0821.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.xtext.xtext.generator_2.25.0.v20210301-0843.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.junit.jupiter.api_5.7.1.v20210222-1948.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.junit.jupiter.engine_5.7.1.v20210222-1948.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.junit.platform.commons_1.7.1.v20210222-1948.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.junit.platform.engine_1.7.1.v20210222-1948.jar"/>
-	<classpathentry kind="lib" path="lib/dependencies/org.opentest4j_1.2.0.v20190826-0900.jar"/>
+	<classpathentry kind="lib" path="lib/use-runtime.jar"/>
+	<classpathentry kind="lib" path="lib/use.jar"/>
+	<classpathentry kind="lib" path="lib/modelConverter.use_language2018.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_321"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

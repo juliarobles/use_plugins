@@ -15,7 +15,7 @@ public class SingleQuotes {
 	
 	public static File modifyFileBeforeGeneratingOnlyBeginEnd(String source) {
 		StringBuilder sBuilder = new StringBuilder();
-		String aux = "", line;
+		String line;
 		boolean nofin = true, soil = false, next = false;
 		String auxLine;
 		
@@ -30,7 +30,7 @@ public class SingleQuotes {
             		while(input.hasNextLine() && nofin) {
             			auxLine = line;
             			line = input.nextLine();
-            			while(input.hasNextLine() && (line.isBlank() || line.startsWith("--"))) {
+            			while(input.hasNextLine() && (line.trim().isEmpty() || line.startsWith("--"))) {
                 			line = input.nextLine();
                 		}
             			if(isContain(line, ENDSOIL)) {
@@ -54,19 +54,19 @@ public class SingleQuotes {
             		}
             		
             	} else if (soil && next) {
-            		while(input.hasNextLine() && line.isBlank()) {
+            		while(input.hasNextLine() && line.trim().isEmpty()) {
             			line = input.nextLine();
             		}
-            		line = "'" + line.strip();
+            		line = "'" + line.trim();
             		next = false;
             	} else if(isContain(line, STARTSOIL)) { //Analizando todo el archivo y me encuentro el principio
             		soil = true;
-            		auxLine = line.substring(line.indexOf(STARTSOIL)+(STARTSOIL).length()).strip();
-            		if(auxLine == null || auxLine.isBlank()) {
+            		auxLine = line.substring(line.indexOf(STARTSOIL)+(STARTSOIL).length()).trim();
+            		if(auxLine == null || auxLine.trim().isEmpty()) {
             			next = true;
             		} else {
             			sBuilder.append(line.substring(0, line.indexOf(STARTSOIL)) + "\nbegin\n");
-            			line = "'" + auxLine.strip();
+            			line = "'" + auxLine.trim();
             		}
             	}
             	sBuilder.append(line + "\n");
@@ -93,7 +93,7 @@ public class SingleQuotes {
 	private static boolean isContain(String source, String subItem){
 		String[] parts = source.split(" ");
 		for(int i = 0; i < parts.length; i++) {
-		    if(parts[i].strip().replace("\t", "").equals(subItem)) return true;
+		    if(parts[i].trim().replace("\t", "").equals(subItem)) return true;
 		}
 		return false;
    }

@@ -56,52 +56,52 @@ public class TTransition {
 			return false;
 		TTransition other = (TTransition) obj;
 		if (operation == null) {
-			if (other.operation != null && !other.operation.contains("unnamed") && !other.operation.isBlank())
+			if (other.operation != null && !other.operation.contains("unnamed") && !other.operation.trim().isEmpty())
 				return false;
 		} else if (!operation.equals(other.operation)
-				&& !(operation.isBlank() && other.operation == null)
-				&& !(operation.isBlank() && other.operation.contains("unnamed"))
-				&& !((other.operation == null || other.operation.isBlank()) && operation.contains("unnamed"))
+				&& !(operation.trim().isEmpty() && other.operation == null)
+				&& !(operation.trim().isEmpty() && other.operation.contains("unnamed"))
+				&& !((other.operation == null || other.operation.trim().isEmpty()) && operation.contains("unnamed"))
 				&& !((other.operation != null && operation.contains(other.operation) && operation.length() == other.operation.length()+1))
 				&& !((other.operation != null && other.operation.contains(operation) && other.operation.length() == operation.length()+1)))
 			return false;
 		if (postCondition == null) {
-			if (other.postCondition != null && !other.postCondition.isBlank() && !other.postCondition.equals("true") && !other.postCondition.equals("USE"))
+			if (other.postCondition != null && !other.postCondition.trim().isEmpty() && !other.postCondition.equals("true") && !other.postCondition.equals("USE"))
 				return false;
 		} else if (!postCondition.equals(other.postCondition)
-				&& !((other.postCondition == null || other.postCondition.isBlank()) && postCondition.equals("true"))
-				&& !(postCondition.isBlank() && other.postCondition != null && other.postCondition.equals("true"))
-				&& !(other.postCondition == null && postCondition.isBlank())
+				&& !((other.postCondition == null || other.postCondition.trim().isEmpty()) && postCondition.equals("true"))
+				&& !(postCondition.trim().isEmpty() && other.postCondition != null && other.postCondition.equals("true"))
+				&& !(other.postCondition == null && postCondition.trim().isEmpty())
 				&& !(other.postCondition != null && other.postCondition.equals("USE")) && !postCondition.equals("USE")
-				&& !(other.postCondition != null && other.postCondition.strip().replaceAll(" ", "") != null && postCondition.equals(other.postCondition.strip().replaceAll(" ", ""))))
+				&& !(other.postCondition != null && other.postCondition.trim().replaceAll(" ", "") != null && postCondition.equals(other.postCondition.trim().replaceAll(" ", ""))))
 			return false;
 		if (preCondition == null) {
-			if (other.preCondition != null && !other.preCondition.isBlank() && !other.preCondition.equals("true") && !other.preCondition.equals("USE"))
+			if (other.preCondition != null && !other.preCondition.trim().isEmpty() && !other.preCondition.equals("true") && !other.preCondition.equals("USE"))
 				return false;
 		} else if (!preCondition.equals(other.preCondition)
-				&& !((other.preCondition == null || other.preCondition.isBlank()) && preCondition.equals("true"))
-				&& !(preCondition.isBlank() && other.preCondition != null && other.preCondition.equals("true"))
-				&& !(other.preCondition == null && preCondition.isBlank())
+				&& !((other.preCondition == null || other.preCondition.trim().isEmpty()) && preCondition.equals("true"))
+				&& !(preCondition.trim().isEmpty() && other.preCondition != null && other.preCondition.equals("true"))
+				&& !(other.preCondition == null && preCondition.trim().isEmpty())
 				&& !(other.preCondition != null && other.preCondition.equals("USE")) && !preCondition.equals("USE")
-				&& !(other.preCondition != null && other.preCondition.strip().replaceAll(" ", "") != null && preCondition.equals(other.preCondition.strip().replaceAll(" ", ""))))
+				&& !(other.preCondition != null && other.preCondition.trim().replaceAll(" ", "") != null && preCondition.equals(other.preCondition.trim().replaceAll(" ", ""))))
 			return false;
 		if (source == null) {
-			if (other.source != null && !other.source.contains("unnamed") && !other.source.isBlank())
+			if (other.source != null && !other.source.contains("unnamed") && !other.source.trim().isEmpty())
 				return false;
 		} else if (!source.equals(other.source)
-				&& !(source.isBlank() && other.source == null)
-				&& !(source.isBlank() && other.source.contains("unnamed"))
-				&& !((other.source == null || other.source.isBlank()) && source.contains("unnamed"))
+				&& !(source.trim().isEmpty() && other.source == null)
+				&& !(source.trim().isEmpty() && other.source.contains("unnamed"))
+				&& !((other.source == null || other.source.trim().isEmpty()) && source.contains("unnamed"))
 				&& !((other.source != null && source.contains(other.source) && source.length() == other.source.length()+1))
 				&& !((other.source != null && other.source.contains(source) && other.source.length() == source.length()+1)))
 			return false;
 		if (target == null) {
-			if (other.target != null && !other.target.contains("unnamed") && !other.target.isBlank())
+			if (other.target != null && !other.target.contains("unnamed") && !other.target.trim().isEmpty())
 				return false;
 		} else if (!target.equals(other.target)
-				&& !(target.isBlank() && other.target == null)
-				&& !(target.isBlank() && other.target.contains("unnamed"))
-				&& !((other.target == null || other.target.isBlank()) && target.contains("unnamed"))
+				&& !(target.trim().isEmpty() && other.target == null)
+				&& !(target.trim().isEmpty() && other.target.contains("unnamed"))
+				&& !((other.target == null || other.target.trim().isEmpty()) && target.contains("unnamed"))
 				&& !((other.target != null && target.contains(other.target) && target.length() == other.target.length()+1))
 				&& !((other.target != null && other.target.contains(target) && other.target.length() == target.length()+1)))
 			return false;

@@ -7,14 +7,14 @@ import java.io.File;
 import java.io.PrintStream;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.MethodOrderer.MethodName;
+//import org.junit.jupiter.api.MethodOrderer.MethodName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+//import org.junit.jupiter.api.TestMethodOrder;
 
 import main.model.Generators;
 import test.utilities.ModelCheck;
 
-@TestMethodOrder(MethodName.class)
+//@TestMethodOrder(MethodName.class)
 class TestModelConverter {
 	
 	private static final String destiny = "testResult";
@@ -46,7 +46,7 @@ class TestModelConverter {
 		System.setErr(new PrintStream(errContent));
 		
 		Generators.chooseGeneratorBySourceFile(null, "");
-		assertEquals("ERROR: Both fields must be completed.".strip(), errContent.toString().strip());
+		assertEquals("ERROR: Both fields must be completed.".trim(), errContent.toString().trim());
 		
 		System.setErr(originalErr);
 		
@@ -59,7 +59,7 @@ class TestModelConverter {
 		System.setErr(new PrintStream(errContent));
 		
 		Generators.chooseGeneratorBySourceFile(source + "/P01.use", "");
-		assertEquals("ERROR: Both fields must be completed.".strip(), errContent.toString().strip());
+		assertEquals("ERROR: Both fields must be completed.".trim(), errContent.toString().trim());
 		
 		System.setErr(originalErr);
 		
@@ -72,7 +72,7 @@ class TestModelConverter {
 		System.setErr(new PrintStream(errContent));
 		
 		Generators.chooseGeneratorBySourceFile("aaaa", "aaaa");
-		assertEquals("ERROR: Invalid source path.".strip(), errContent.toString().strip());
+		assertEquals("ERROR: Invalid source path.".trim(), errContent.toString().trim());
 		
 		System.setErr(originalErr);
 	}
@@ -84,7 +84,7 @@ class TestModelConverter {
 		System.setErr(new PrintStream(errContent));
 		
 		Generators.chooseGeneratorBySourceFile(source + "/P01.use", "aaaa");
-		assertEquals("ERROR: Invalid destination path.".strip(), errContent.toString().strip());
+		assertEquals("ERROR: Invalid destination path.".trim(), errContent.toString().trim());
 		
 		System.setErr(originalErr);
 	}
@@ -96,7 +96,7 @@ class TestModelConverter {
 		System.setErr(new PrintStream(errContent));
 		
 		Generators.chooseGeneratorBySourceFile(source + "/fail.txt", destiny);
-		assertEquals("ERROR: Please enter a valid .use or .uml file.".strip(), errContent.toString().strip());
+		assertEquals("ERROR: Please enter a valid .use or .uml file.".trim(), errContent.toString().trim());
 		
 		System.setErr(originalErr);
 	}

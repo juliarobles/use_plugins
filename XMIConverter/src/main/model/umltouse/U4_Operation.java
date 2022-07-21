@@ -55,7 +55,7 @@ public class U4_Operation {
 			sBuilder.append(")" + U9_Auxiliary.typeToStringOptional(operation.getType(), collection));
 		}
 		
-		if (bodycondition != null && bodycondition.getSpecification() != null && bodycondition.getSpecification().stringValue() != null && !bodycondition.getSpecification().stringValue().isBlank()) {
+		if (bodycondition != null && bodycondition.getSpecification() != null && bodycondition.getSpecification().stringValue() != null && !bodycondition.getSpecification().stringValue().trim().isEmpty()) {
 			value = bodycondition.getSpecification().stringValue();
 		}
 		
@@ -83,7 +83,7 @@ public class U4_Operation {
 	}
 	
 	private static String analyzeOperationCondition(Constraint constraint, String conditionType) {
-		String value = (constraint.getSpecification() != null && constraint.getSpecification().stringValue() != null && !constraint.getSpecification().stringValue().isBlank()) ? constraint.getSpecification().stringValue() : "true";
+		String value = (constraint.getSpecification() != null && constraint.getSpecification().stringValue() != null && !constraint.getSpecification().stringValue().trim().isEmpty()) ? constraint.getSpecification().stringValue() : "true";
 		return conditionType + " " + constraint.getName() + ": " + value + "\n";
 	}
 	

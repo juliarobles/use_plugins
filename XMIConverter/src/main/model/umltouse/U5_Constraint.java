@@ -22,9 +22,9 @@ public class U5_Constraint {
 			name = constraint.getName();
 			value = (constraint.getSpecification() != null) ? constraint.getSpecification().stringValue() : null;
 			
-			name = (name != null && !name.isBlank()) ? " " + U9_Auxiliary.searchInList(name, namesUsedParticular) : "";
+			name = (name != null && !name.trim().isEmpty()) ? " " + U9_Auxiliary.searchInList(name, namesUsedParticular) : "";
 			
-			if(value == null || value.isBlank()) {
+			if(value == null || value.trim().isEmpty()) {
 				System.out.println("WARNING: Constraint without OCL found. Fixed by assigning OCL by default (true).");
 				value = "true";
 			} 
