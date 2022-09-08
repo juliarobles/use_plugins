@@ -1,6 +1,9 @@
 package main.model.usetouml;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.List;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -23,6 +26,7 @@ public class General {
 	private General() {}
 	
 	public static void generateUML(String source, String destiny) {
+		
 		File tempFile = SingleQuotes.modifyFileBeforeGeneratingOnlyBeginEnd(source);
 		Injector injector = new USEStandaloneSetup().createInjectorAndDoEMFRegistration();
         ResourceSet rs = injector.getInstance(ResourceSet.class);

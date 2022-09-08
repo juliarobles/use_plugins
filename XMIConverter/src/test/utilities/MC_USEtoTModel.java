@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import com.google.inject.Injector;
 
 import main.model.usetouml.SingleQuotes;
+/*
 import modelConverter.use_language.USEStandaloneSetup;
 import modelConverter.use_language.use.ModelUSE;
 import modelConverter.use_language.use.OperationContext;
@@ -38,10 +39,10 @@ import modelConverter.use_language.use.AllClassAndEnum;
 import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.Association;
 import modelConverter.use_language.use.AssociationEnd;
-import modelConverter.use_language.use.Attribute;
+import modelConverter.use_language.use.Attribute;*/
 
 public class MC_USEtoTModel {
-	
+	/*
 	public static TModel getModelFromFileUSE(String modelUSE) {
 		TModel tModel = null;
 		
@@ -251,5 +252,5 @@ public class MC_USEtoTModel {
 			return ((Enum) allClassAndEnum).getName();
 		}
 		return null;
-	}
+	}*/
 }

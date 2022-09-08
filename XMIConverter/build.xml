@@ -70,31 +70,33 @@
 	<target name="jar" depends="compile">
 		<jar destfile="dist/${filename}" basedir="build" manifest="META-INF/MANIFEST.MF">
 			<fileset dir="." includes="useplugin.xml" />
-			<zipfileset src="lib/modelConverter.use_language2018.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/modelConverter.use_languageSINANTLR.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/use.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/use-gui.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/use-runtime.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/com.google.guava_21.0.0.v20170206-1425.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/com.google.inject_3.0.0.v201312141243.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/com.ibm.icu_62.1.0.v20180727-1652.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/javax.inject_1.0.0.v20091030.jar" excludes="META-INF/*"/>
-			<zipfileset src="lib/dependencies/javax.servlet_3.1.0.v201410161800.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/junit.jar" excludes="META-INF/*"/>
-			<zipfileset src="lib/dependencies/org.antlr.runtime_3.2.0.v201101311130.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.apache.commons.cli_1.2.0.v201404270220.jar" excludes="META-INF/*"/>
-			<zipfileset src="lib/dependencies/org.apache.commons.logging_1.2.0.v20180409-1502.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.apache.log4j_1.2.15.v201012070815.jar" excludes="META-INF/*"/>
-			<zipfileset src="lib/dependencies/org.eclipse.core.runtime_3.15.0.v20180817-1401.jar" excludes="META-INF/*"/>
-			<zipfileset src="lib/dependencies/org.eclipse.emf.codegen.ecore_2.15.0.v20180905-1732.jar" excludes="META-INF/*"/>
-			<zipfileset src="lib/dependencies/org.eclipse.emf.codegen_2.14.0.v20180706-1146.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.core.contenttype_3.7.100.v20180817-1401.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.core.jobs_3.10.100.v20180817-1215.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.core.runtime.source_3.15.0.v20180817-1401.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.emf.common_2.15.0.v20180723-1316.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.emf.ecore.xmi_2.15.0.v20180706-1146.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.emf.ecore_2.15.0.v20180722-1159.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.emf.mapping.ecore2xml_2.11.0.v20180706-1146.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.emf.mwe.core_1.3.21.201705291011.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.emf.mwe.utils_1.3.21.201705291011.jar" excludes="META-INF/*"/>
-			<zipfileset src="lib/dependencies/org.eclipse.emf.mwe2.lib_2.9.1.201705291011.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.emf.mwe2.runtime_2.9.1.201705291011.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.equinox.app_1.3.600.v20180827-1235.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.equinox.common_3.10.100.v20180827-1235.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.equinox.preferences_3.7.200.v20180827-1235.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.equinox.registry_3.8.100.v20180827-1235.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.osgi.compatibility.state_1.1.200.v20180827-1536.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.osgi_3.13.100.v20180827-1536.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.uml2.common_2.4.0.v20180903-1400.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.uml2.types_2.4.0.v20180903-1400.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.uml2.uml.profile.standard_1.4.0.v20180903-1400.jar" excludes="META-INF/*"/>
@@ -102,12 +104,10 @@
 			<zipfileset src="lib/dependencies/org.eclipse.uml2.uml_5.4.0.v20180903-1400.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.xtend.lib.macro_2.15.0.v20180916-1130.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.xtend.lib_2.15.0.v20180916-1130.jar" excludes="META-INF/*"/>
-			<zipfileset src="lib/dependencies/org.eclipse.xtext.common.types_2.15.0.v20180916-1104.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.xtend.typesystem.emf_2.2.0.v201605260315.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.xtend_2.2.0.v201605260315.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.xtext.util_2.15.0.v20180916-0722.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.eclipse.xtext.xbase.lib_2.15.0.v20180916-1130.jar" excludes="META-INF/*"/>
-			<zipfileset src="lib/dependencies/org.eclipse.xtext.xbase_2.15.0.v20180916-1104.jar" excludes="META-INF/*"/>
-			<zipfileset src="lib/dependencies/org.eclipse.xtext.xtext.generator_2.15.0.v20180916-0722.jar" excludes="META-INF/*"/>
-			<zipfileset src="lib/dependencies/org.eclipse.xtext_2.15.0.v20180916-0722.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.hamcrest.core_1.3.0.v20180420-1519.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.junit.jupiter.api_5.1.0.v20180327-1502.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/dependencies/org.objectweb.asm_6.2.1.v20180823-1831.jar" excludes="META-INF/*"/>

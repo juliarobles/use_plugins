@@ -4,8 +4,9 @@ public class ModelCheck {
 	
 	public static boolean checkModelsAreEquivalentUSEUML(String modelUSE, String modelUML) {
 		TModel tModelUML = MC_UMLtoTModel.getModelFromFileMD(modelUML);
-		TModel tModelUSE = MC_USEtoTModel.getModelFromFileUSE(modelUSE);
-		return tModelUML.equals(tModelUSE);
+		return false;
+		//TModel tModelUSE = MC_USEtoTModel.getModelFromFileUSE(modelUSE);
+		//return tModelUML.equals(tModelUSE);
 	}
 
 	public static boolean checkModelsAreEquivalentUMLUML(String modelUML1, String modelUML2) {
@@ -15,9 +16,10 @@ public class ModelCheck {
 	}
 	
 	public static boolean checkModelsAreEquivalentUSEUSE(String modelUSE1, String modelUSE2) {
-		TModel tModelUSE1 = MC_USEtoTModel.getModelFromFileUSE(modelUSE1);
-		TModel tModelUSE2 = MC_USEtoTModel.getModelFromFileUSE(modelUSE2);
-		return tModelUSE1.equals(tModelUSE2);
+		return false;
+		//TModel tModelUSE1 = MC_USEtoTModel.getModelFromFileUSE(modelUSE1);
+		//TModel tModelUSE2 = MC_USEtoTModel.getModelFromFileUSE(modelUSE2);
+		//return tModelUSE1.equals(tModelUSE2);
 		/*Injector injector = new USEStandaloneSetup().createInjectorAndDoEMFRegistration();
         ResourceSet rs = injector.getInstance(ResourceSet.class);
         Resource tModelUSE1 = rs.getResource(URI.createFileURI(modelUSE1), true);
