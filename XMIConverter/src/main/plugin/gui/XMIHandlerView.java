@@ -51,17 +51,7 @@ public class XMIHandlerView extends JFileChooser {
 		}
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			Utils.setCurrentDirectory(getSelectedFile());
-			switch (viewMode) {
-			case EXPORT:
-				XMIHandlerPlugin.getXMIHandlerPluginInstance().exportToXMI(
-						getSelectedFile(), session, mainWindow.logWriter());
-				break;
-			case IMPORT:
-				XMIHandlerPlugin.getXMIHandlerPluginInstance().importFromXMI(
-						getSelectedFile(), pathGeneratedUse, session, mainWindow.logWriter());
-				break;
-			}
-			/*WaitDialog dlg = new WaitDialog(mainWindow, true);
+			WaitDialog dlg = new WaitDialog(mainWindow, true);
 			dlg.start(new IWorkerRunner() {
 
 				@Override
@@ -84,7 +74,7 @@ public class XMIHandlerView extends JFileChooser {
 				}
 			});
 			centerWindow(dlg, mainWindow);
-			dlg.setVisible(true);*/
+			dlg.setVisible(true);
 
 		}
 	}

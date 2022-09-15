@@ -2,12 +2,12 @@
 <?use version="6.0.0"?>
 <plugin name="ConverterXMI" version="6.0.0-r1">
 	<actions>
-		<action label="Export to XMI" icon="resources/export.png"
+		<action label="Export to XMI" icon="resources/export-2.png"
 			class="main.plugin.gui.ActionExportXMI" tooltip="Export to XMI"
 			menu="XMI" menuitem="Export to XMI" toolbaritem="plugins"
 			id="main.plugin.gui.ActionExportXMI">
 		</action>
-		<action label="Import from XMI" icon="resources/import.png"
+		<action label="Import from XMI" icon="resources/import-2.png"
 			class="main.plugin.gui.ActionImportXMI" tooltip="Import from XMI"
 			menu="XMI" menuitem="Import from XMI" toolbaritem="plugins"
 			id="main.plugin.gui.ActionImportXMI">
