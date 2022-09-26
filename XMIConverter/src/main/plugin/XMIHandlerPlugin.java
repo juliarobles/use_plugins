@@ -40,13 +40,12 @@ public class XMIHandlerPlugin extends Plugin {
 		try {
 			String source = getFilename(session);
 			String destiny = file.getAbsolutePath();
-			Utils.out("Filename: " + source);
-			Utils.out("File: " + destiny);
+			Utils.out("Exporting USE file with path " + source + "...");
 			Generators.fromUSEtoUML(source, destiny);
-			Utils.out("Successfully exported to: " + destiny);
+			Utils.out("Check the console. If no errors occurred, the file has been successfully exported to: " + destiny + "\n");
 		} catch (Exception ex) {
 			Utils.error(ex);
-			Utils.out("Export failed.");
+			Utils.out("Export failed. (Check plugin limitations)\n");
 		}
 	}
 
@@ -55,10 +54,10 @@ public class XMIHandlerPlugin extends Plugin {
 		try {
 			Path destinyPath = pathGeneratedUse.toPath();
 			String destiny = destinyPath.toString();
-			Utils.out(destiny);
 			String source = file.getAbsolutePath();
-			Utils.out(source);
+			Utils.out("Importing UML file with path " + source + "...");
 			Generators.fromUMLtoUSE(source, destiny);
+			Utils.out("Check the console. If no errors occurred, the file has been correctly converted to USE and stored in " + destiny);
 			Optional<Path> lastFilePath = Files.list(destinyPath)    // here we get the stream with full directory listing
 				    .filter(f -> !Files.isDirectory(f) && f.getFileName().toString().startsWith("modelConverter_"))  // exclude subdirectories from listing
 				    .max(Comparator.comparingLong(f -> f.toFile().lastModified()));  // finally get the last file using simple comparator by lastModified field
@@ -67,11 +66,11 @@ public class XMIHandlerPlugin extends Plugin {
 			{
 				destiny = lastFilePath.get().toString();
 				try (FileInputStream specStream = new FileInputStream(destiny)){
-					Utils.out("compiling specification...");
+					Utils.out("Compiling generated specification...");
 					MModel model = USECompiler.compileSpecification(specStream,
 						destiny, new PrintWriter(System.err), new ModelFactory());
 					session.setSystem(new MSystem(model));
-					Utils.out("CARGADO");
+					Utils.out("Model loaded successfully.\n");
 				} catch (FileNotFoundException e) {
 					Utils.out("File `" + destiny + "' not found.");
 					System.exit(1);
@@ -79,15 +78,14 @@ public class XMIHandlerPlugin extends Plugin {
 					// close failed
 				}
 			} else {
-				Utils.out("file path no encontrado");
-				Utils.out("destinyPath: " + destinyPath);
+				Utils.out("File `" + destinyPath + "' not found.");
 			}
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		} catch (Exception ex) {
 				Utils.error(ex);
-				Utils.out("Import failed.");
+				Utils.out("Import failed. (Check plugin limitations)");
 		}
 	}
 	

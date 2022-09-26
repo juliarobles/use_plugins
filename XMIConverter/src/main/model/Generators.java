@@ -34,15 +34,15 @@ public class Generators {
 		File file = new File(source);
 		System.out.println("The USE file \"" + file.getName() + "\" will be converted to UML...");
 		main.model.usetouml.General.generateUML(source, destiny);
-		System.out.println("Process ended.\n");
+		System.out.println("Process ended.");
 		
 	}
 
-	public static void fromUMLtoUSE(String source, String destination) throws IOException {
+	public static void fromUMLtoUSE(String source, String destiny) throws IOException {
 		File file = new File(source);
 		System.out.println("The UML file \"" + file.getName() + "\" will be converted to USE...");
-		main.model.umltouse.General.generateUSE(source, destination);
-		System.out.println("Process ended.\n");
+		main.model.umltouse.General.generateUSE(source, destiny);
+		System.out.println("Process ended.");
 	}
 	
 }

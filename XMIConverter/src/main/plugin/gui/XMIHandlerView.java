@@ -19,16 +19,16 @@ public class XMIHandlerView extends JFileChooser {
 
 	private Session session;
 	private MainWindow mainWindow;
-	private File pathGeneratedUse;
+	private File fileToImport;
 
 	public enum ViewMode {
 		EXPORT, IMPORT
 	}
 
-	public XMIHandlerView(MainWindow theParent, Session theSession, ViewMode viewMode, File pathGeneratedUse) {
+	public XMIHandlerView(MainWindow theParent, Session theSession, ViewMode viewMode, File fileToImport) {
 		this.session = theSession;
 		this.mainWindow = theParent;
-		this.pathGeneratedUse = pathGeneratedUse;
+		this.fileToImport = fileToImport;
 		initGUI(viewMode);
 	}
 
@@ -45,8 +45,8 @@ public class XMIHandlerView extends JFileChooser {
 			setFileSelectionMode(DIRECTORIES_ONLY);
 			returnVal = showDialog(mainWindow, "Export");
 		} else {
-			setDialogTitle("Import from XMI - Select XMI file to import");
-			setFileFilter(new FileNameExtensionFilter("Eclipse UML2 (v3.x) XMI (*.uml, *.xmi)", "uml", "xmi"));
+			setDialogTitle("Import from XMI - Select directory to save generated use file");
+			setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			returnVal = showDialog(mainWindow, "Import");
 		}
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -63,7 +63,7 @@ public class XMIHandlerView extends JFileChooser {
 						break;
 					case IMPORT:
 						XMIHandlerPlugin.getXMIHandlerPluginInstance().importFromXMI(
-								getSelectedFile(), pathGeneratedUse, session, mainWindow.logWriter());
+								fileToImport, getSelectedFile(), session, mainWindow.logWriter());
 						break;
 					}
 					return Boolean.TRUE;

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_321">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/use-gui.jar"/>
-	<classpathentry kind="lib" path="lib/use-runtime.jar"/>
-	<classpathentry kind="lib" path="lib/use.jar"/>
 	<classpathentry kind="lib" path="lib/dependencies/junit.jar"/>
 	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.emf.common_2.15.0.v20180723-1316.jar"/>
 	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.emf.ecore_2.15.0.v20180722-1159.jar"/>
@@ -47,5 +44,7 @@
 	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.xtend.typesystem.emf_2.2.0.v201605260315.jar"/>
 	<classpathentry kind="lib" path="lib/dependencies/org.eclipse.xtext.xbase.lib_2.15.0.v20180916-1130.jar"/>
 	<classpathentry kind="lib" path="lib/dependencies/org.objectweb.asm_6.2.1.v20180823-1831.jar"/>
+	<classpathentry kind="lib" path="lib/7.0.0-use-core.jar"/>
+	<classpathentry kind="lib" path="lib/7.0.0-use-gui.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

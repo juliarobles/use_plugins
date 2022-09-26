@@ -37,7 +37,8 @@
 		<fileset dir="${utilities.dir}">
 		       <include name="*.jar"/>
 		</fileset>-->
-		<fileset dir="${plugin.lib}" includes="*.jar" />
+		<fileset dir="${plugin.lib}" includes="*.jar" excludes="7.0.0-use*" />
+		<!--<fileset dir="${plugin.lib}" includes="*.jar" excludes="use*" />-->
 		<fileset dir="${plugin.lib}/dependencies" includes="*.jar" />
 	</path>
 
@@ -71,6 +72,8 @@
 		<jar destfile="dist/${filename}" basedir="build" manifest="META-INF/MANIFEST.MF">
 			<fileset dir="." includes="useplugin.xml" />
 			<zipfileset src="lib/modelConverter.use_languageSINANTLR.jar" excludes="META-INF/*"/>
+			<!--<zipfileset src="lib/7.0.0-use-core.jar" excludes="META-INF/*"/>-->
+			<!--<zipfileset src="lib/7.0.0-use-gui.jar" excludes="META-INF/*"/>-->
 			<zipfileset src="lib/use.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/use-gui.jar" excludes="META-INF/*"/>
 			<zipfileset src="lib/use-runtime.jar" excludes="META-INF/*"/>

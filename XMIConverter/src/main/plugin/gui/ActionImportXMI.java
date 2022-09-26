@@ -2,6 +2,7 @@ package main.plugin.gui;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.tzi.use.gui.main.MainWindow;
 import org.tzi.use.runtime.gui.IPluginAction;
@@ -37,9 +38,10 @@ public class ActionImportXMI implements IPluginActionDelegate {
 			if (option == JOptionPane.YES_OPTION) {
 				JFileChooser fileChooser = new JFileChooser();
 				fileChooser.setCurrentDirectory(Utils.getCurrentDirectory());
-				fileChooser.setDialogTitle("Import from XMI - Select directory for generated use file");
-				fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				int result = fileChooser.showOpenDialog(fMainWindow);
+				fileChooser.setDialogTitle("Import from XMI - Select XMI file to import");
+				fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				fileChooser.setFileFilter(new FileNameExtensionFilter("Eclipse UML2 (v3.x) XMI (*.uml)", "uml"));
+				int result = fileChooser.showDialog(fMainWindow, "Import");
 				if (result == JFileChooser.APPROVE_OPTION) {
 					XMIHandlerView view = new XMIHandlerView(fMainWindow, pluginAction.getSession(), XMIHandlerView.ViewMode.IMPORT, fileChooser.getSelectedFile());
 					view.setVisible(true);
@@ -48,6 +50,11 @@ public class ActionImportXMI implements IPluginActionDelegate {
 				return;
 			}
 		}
+	}
+	
+	
+	public boolean shouldBeEnabled(IPluginAction pluginAction) {
+		return true;
 	}
 
 }
