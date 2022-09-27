@@ -1,6 +1,2 @@
 XMIConverter.jar filter=lfs diff=lfs merge=lfs -text
 XMIConverter-7.0.0.jar filter=lfs diff=lfs merge=lfs -text
-XMIConverterPlugin-6.0.0-r1-sources.zip filter=lfs diff=lfs merge=lfs -text
-XMIConverterPlugin-6.0.0-r1.zip filter=lfs diff=lfs merge=lfs -text
-XMIConverterPlugin-7.0.0-r1-sources.zip filter=lfs diff=lfs merge=lfs -text
-XMIConverterPlugin-7.0.0-r1.zip filter=lfs diff=lfs merge=lfs -text
