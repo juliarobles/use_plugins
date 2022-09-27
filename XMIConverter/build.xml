@@ -25,32 +25,16 @@
 	<property name="utilities.dir" value="C:\Users\julia\Documents\eclipse\plugins" />
 
 	<path id="classpath">
-		<!--<fileset dir="${plugin.lib}" includes="*.jar" />-->
-		<!--<fileset dir="${use.path}/lib" includes="*.jar" excludes="use*" />-->
-		<!-- <pathelement location="${use.classes}"/> -->
-		<!--<fileset dir="lib">
-			<include name="*.jar"/>
+		<fileset dir="${plugin.lib}" includes="*.jar">
+			<!--<exclude name="use*"/>-->
+			<exclude name="7.0.0-use*"/>
 		</fileset>
-		<fileset dir="lib/dependencies">
-			<include name="*.jar"/>
-		</fileset>
-		<fileset dir="${utilities.dir}">
-		       <include name="*.jar"/>
-		</fileset>-->
-		<fileset dir="${plugin.lib}" includes="*.jar" excludes="7.0.0-use*" />
-		<!--<fileset dir="${plugin.lib}" includes="*.jar" excludes="use*" />-->
 		<fileset dir="${plugin.lib}/dependencies" includes="*.jar" />
 	</path>
 
 	<target name="setversion">
 		<replaceregexp file="${useplugin.file}" match='&lt;\?use version=".*?"' replace='&lt;\?use version="${use.version}"'/>
 		<replaceregexp file="${useplugin.file}" match='&lt;plugin(.+?)version=".*?"' replace='&lt;plugin\1version="${version}"'/>
-	</target>
-	
-	<target name="compile-use">
-		<!-- <subant target="compile-use" buildpath="${use.path}">
-			<property name="javac.debug" value="${javac.debug}"/>
-		</subant> -->
 	</target>
 
 	<target name="clean">

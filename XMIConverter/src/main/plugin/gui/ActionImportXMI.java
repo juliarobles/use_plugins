@@ -35,20 +35,18 @@ public class ActionImportXMI implements IPluginActionDelegate {
 					"Do you want to import a XMI file and discard your current system state?",
 					"XMI Converter", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
 					options, options[1]);
-			if (option == JOptionPane.YES_OPTION) {
-				JFileChooser fileChooser = new JFileChooser();
-				fileChooser.setCurrentDirectory(Utils.getCurrentDirectory());
-				fileChooser.setDialogTitle("Import from XMI - Select XMI file to import");
-				fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-				fileChooser.setFileFilter(new FileNameExtensionFilter("Eclipse UML2 (v3.x) XMI (*.uml)", "uml"));
-				int result = fileChooser.showDialog(fMainWindow, "Import");
-				if (result == JFileChooser.APPROVE_OPTION) {
-					XMIHandlerView view = new XMIHandlerView(fMainWindow, pluginAction.getSession(), XMIHandlerView.ViewMode.IMPORT, fileChooser.getSelectedFile());
-					view.setVisible(true);
-				}
-			} else {
-				return;
-			}
+			if (option != JOptionPane.YES_OPTION) return;
+		}
+			
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setCurrentDirectory(Utils.getCurrentDirectory());
+		fileChooser.setDialogTitle("Import from XMI - Select XMI file to import");
+		fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		fileChooser.setFileFilter(new FileNameExtensionFilter("Eclipse UML2 (v3.x) XMI (*.uml)", "uml"));
+		int result = fileChooser.showDialog(fMainWindow, "Import");
+		if (result == JFileChooser.APPROVE_OPTION) {
+			XMIHandlerView view = new XMIHandlerView(fMainWindow, pluginAction.getSession(), XMIHandlerView.ViewMode.IMPORT, fileChooser.getSelectedFile());
+			view.setVisible(true);
 		}
 	}
 	

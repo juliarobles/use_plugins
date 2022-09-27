@@ -1,0 +1,133 @@
+<project name="UseXMIConverter" default="jar" basedir=".">
+
+	<!-- Version Format: <compatible USE version>-r<n-th release for this USE version>
+	     e.g.: 4.0-r1 -->
+	<property name="use.version" value="6.0.0" />
+	<property name="release.number" value="1" />
+	
+	<property name="version" value="7.0.0-r${release.number}" />
+	
+	<property environment="env"/>
+
+	<condition property="build.suffix" value="-NIGHTLY-build${env.BUILD_NUMBER}" else="-${version}">
+		<isset property="env.BUILD_NUMBER"/>
+	</condition>
+	
+	<property name="compiler" value="1.8" />
+	<!-- DO NOT ENABLE DEBUG HERE!
+	     To enable debug LOCALLY, run ant with argument '-Djavac.debug=true' -->
+	<property name="javac.debug" value="off" />
+	<property name="use.path" value="${basedir}/../use" />
+	<property name="useplugin.file" value="useplugin.xml" />
+	<property name="use.classes" value="${use.path}/build/classes" />
+	<property name="plugin.lib" value="lib" />
+	<property name="filename" value="XMIConverter-7.0.0.jar" />
+	<property name="utilities.dir" value="C:\Users\julia\Documents\eclipse\plugins" />
+
+	<path id="classpath">
+		<fileset dir="${plugin.lib}" includes="*.jar">
+			<exclude name="use*"/>
+			<!--<exclude name="7.0.0-use*"/>-->
+		</fileset>
+		<fileset dir="${plugin.lib}/dependencies" includes="*.jar" />
+	</path>
+
+	<target name="setversion">
+		<replaceregexp file="${useplugin.file}" match='&lt;\?use version=".*?"' replace='&lt;\?use version="${use.version}"'/>
+		<replaceregexp file="${useplugin.file}" match='&lt;plugin(.+?)version=".*?"' replace='&lt;plugin\1version="${version}"'/>
+	</target>
+
+	<target name="clean">
+		<delete dir="build" />
+		<delete dir="dist" />
+	</target>
+
+	<target name="compile" depends="setversion">
+		<mkdir dir="build" />
+		<copy todir="build/resources">
+			<fileset dir="resources" />
+		</copy>
+		<javac destdir="build" source="${compiler}" target="${compiler}" debug="${javac.debug}" classpathref="classpath" includeantruntime="false">
+			<src path="src" />
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="dist/${filename}" basedir="build" manifest="META-INF/MANIFEST.MF">
+			<fileset dir="." includes="useplugin.xml" />
+			<zipfileset src="lib/modelConverter.use_languageSINANTLR.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/7.0.0-use-core.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/7.0.0-use-gui.jar" excludes="META-INF/*"/>
+			<!--<zipfileset src="lib/use.jar" excludes="META-INF/*"/>-->
+			<!--<zipfileset src="lib/use-gui.jar" excludes="META-INF/*"/>-->
+			<!--<zipfileset src="lib/use-runtime.jar" excludes="META-INF/*"/>-->
+			<zipfileset src="lib/dependencies/com.google.guava_21.0.0.v20170206-1425.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/com.google.inject_3.0.0.v201312141243.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/com.ibm.icu_62.1.0.v20180727-1652.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/javax.inject_1.0.0.v20091030.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/junit.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.apache.commons.cli_1.2.0.v201404270220.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.apache.log4j_1.2.15.v201012070815.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.core.contenttype_3.7.100.v20180817-1401.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.core.jobs_3.10.100.v20180817-1215.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.core.runtime.source_3.15.0.v20180817-1401.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.emf.common_2.15.0.v20180723-1316.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.emf.ecore.xmi_2.15.0.v20180706-1146.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.emf.ecore_2.15.0.v20180722-1159.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.emf.mapping.ecore2xml_2.11.0.v20180706-1146.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.emf.mwe.core_1.3.21.201705291011.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.emf.mwe.utils_1.3.21.201705291011.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.emf.mwe2.runtime_2.9.1.201705291011.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.equinox.app_1.3.600.v20180827-1235.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.equinox.common_3.10.100.v20180827-1235.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.equinox.preferences_3.7.200.v20180827-1235.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.equinox.registry_3.8.100.v20180827-1235.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.osgi.compatibility.state_1.1.200.v20180827-1536.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.osgi_3.13.100.v20180827-1536.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.uml2.common_2.4.0.v20180903-1400.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.uml2.types_2.4.0.v20180903-1400.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.uml2.uml.profile.standard_1.4.0.v20180903-1400.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.uml2.uml.resources_5.4.0.v20180903-1400.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.uml2.uml_5.4.0.v20180903-1400.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.xtend.lib.macro_2.15.0.v20180916-1130.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.xtend.lib_2.15.0.v20180916-1130.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.xtend.typesystem.emf_2.2.0.v201605260315.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.xtend_2.2.0.v201605260315.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.xtext.util_2.15.0.v20180916-0722.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.eclipse.xtext.xbase.lib_2.15.0.v20180916-1130.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.hamcrest.core_1.3.0.v20180420-1519.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.junit.jupiter.api_5.1.0.v20180327-1502.jar" excludes="META-INF/*"/>
+			<zipfileset src="lib/dependencies/org.objectweb.asm_6.2.1.v20180823-1831.jar" excludes="META-INF/*"/>
+		</jar>
+	</target>
+
+    <target name="release-jar" depends="jar" description="Creates plugin release.">
+    	<zip destfile="dist/XMIConverterPlugin${build.suffix}.zip">
+			<!--<zipfileset dir="." filemode="755">
+    			<include name="README" />
+    		</zipfileset>-->
+			<zipfileset dir="dist" filemode="755">
+				<include name="${filename}" />
+			</zipfileset>
+			<!--<zipfileset dir="doc" filemode="755">
+    			<include name="Usage.pdf" />
+			</zipfileset>-->
+    	</zip>
+    </target>
+	
+    <target name="release-sources" description="Creates source code release.">
+    	<zip destfile="dist/XMIConverterPlugin${build.suffix}-sources.zip">
+    		<zipfileset dir=".">
+    			<include name="build.xml" />
+    			<!--<include name="README" />-->
+    			<include name="useplugin.xml" />
+    		</zipfileset>
+    		<zipfileset dir="src" prefix="src" />
+    		<zipfileset dir="resources" prefix="resources" />
+    		<zipfileset dir="lib" prefix="lib" />
+    		<zipfileset dir="META-INF" prefix="META-INF" />
+    	</zip>
+    </target>
+	
+    <target name="release" depends="release-jar,release-sources" description="Creates full release." />
+</project>
