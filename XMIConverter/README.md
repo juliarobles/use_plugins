@@ -18,7 +18,9 @@ The development of this plugin comes from a final year project, in whose [Github
 
 ## Installation
 
-To install the plugin you simply download the [JAR file](dist/XMIConverter-7.0.0.jar) and drag it into the `lib/plugins` folder in the main USE directory.
+To install the plugin you simply download the [JAR file](dist/XMIConverter-7.0.0.jar) and drag it into the `lib/plugins` folder in the main USE directory. 
+
+*Note*: This version of the plugin has been compiled for USE 7.0.0 libraries with Java 14, although it should work on USE 6.0.0. In case it doesn't work correctly use this [JAR file](dist/XMIConverter.jar), which has been compiled with USE 6.0.0 and Java 8 libraries.
 
 ## Compilation
 
@@ -53,13 +55,17 @@ Button in main bar             |  Top menu
 :-------------------------:|:-------------------------:
 ![](resources/readme-export1.PNG)  |  ![](resources/readme-export2.PNG)
 
-Then you have to select where you want to save the generated XMI file. Then you have to select where you want to save the generated XMI file and once you have clicked on the *Export* button the process will start. Check the USE console to make sure there are no errors (warnings are not a problem) and, if so, you will have exported the model succesfully.
+Then you have to select where you want to save the generated XMI file. Then you have to select where you want to save the generated XMI file and once you have clicked on the *Export* button the process will start. Check the USE console to make sure there are no errors (warnings are not a problem) and, if so, **you will have exported the model succesfully**.
 
 File chooser             |  Console output
 :-------------------------:|:-------------------------:
 <img src="resources/readme-export3.PNG" height="300"> |  <img src="resources/readme-export4.PNG" height="300">
 
 ### Import from XMI
+
+The import will depend on the version of USE you have. **If the version is lower than 7.0.0 it will be necessary to load any model in the tool to enable the import option**. With option 7.0.0 or higher the option should be enabled. In the first case don't worry because the loaded model will not be overwritten or damaged by the import: the imported model will be written to a new file where you choose.
+
+
 
 <!--<p align="center">
 <img src="resources/readme-export3.PNG" height="300">
