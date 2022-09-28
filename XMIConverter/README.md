@@ -18,7 +18,7 @@ The development of this plugin comes from a final year project, in whose [Github
 
 ## Installation
 
-To install the plugin you simply download the [JAR file](dist/XMIConverter.jar) and drag it into the `lib/plugins` folder in the main USE directory.
+To install the plugin you simply download the [JAR file](dist/XMIConverter-7.0.0.jar) and drag it into the `lib/plugins` folder in the main USE directory.
 
 ## Compilation
 
@@ -49,10 +49,21 @@ In any case, the plugin is capable of transforming a large part of the model, al
 
 To export, simply load the model to be transformed in the USE tool and click on the *Export to XMI* button in the main bar or choose `Plugins > XMI > Export to XMI` from the top menu.
 
+Button in main bar             |  Top menu
+:-------------------------:|:-------------------------:
+![](resources/readme-export1.PNG)  |  ![](resources/readme-export2.PNG)
 
+Then you have to select where you want to save the generated XMI file. Then you have to select where you want to save the generated XMI file and once you have clicked on the *Export* button the process will start. Check the USE console to make sure there are no errors (warnings are not a problem) and, if so, you will have exported the model succesfully.
+
+File chooser             |  Console output
+:-------------------------:|:-------------------------:
+<img src="resources/readme-export3.PNG" height="300"> |  <img src="resources/readme-export4.PNG" height="300">
 
 ### Import from XMI
 
+<!--<p align="center">
+<img src="resources/readme-export3.PNG" height="300">
+</p>-->
 
 
 
