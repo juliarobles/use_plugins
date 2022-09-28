@@ -12,7 +12,7 @@ The development of this plugin comes from a final year project, in whose [Github
 - [Installation](#installation)
 - [Compilation](#compilation)
 - [About conversion](#about-conversion)
-  - [Limitations of conversion](#limitations)
+  - [Limitations](#limitations)
 - [Usage](#usage)
   - [Export to XMI](#export-to-xmi)
   - [Import to XMI](#import-from-xmi)
@@ -29,7 +29,7 @@ To install the plugin you simply download the [JAR file](dist/XMIConverter-7.0.0
 
 *Note*: This repository uses [Git LFS](https://git-lfs.github.com/) to save space in it.
 
-If you would like to compile the plugin yourself, follow the steps below:
+If you would like to compile the plugin yourself (it is not necessary), follow the steps below:
 1. Install [Git](https://git-scm.com/) and [Git LFS](https://git-lfs.github.com/) (using `git lfs install --skip-smudge` to avoid always downloading LFS files).
 2. Clone the repository if you don't want the LFS files or clone [this repository](https://github.com/juliarobles/XMIPluginUSE-LFS) (it's a mirror of it) if you want them (Github doesn't allow using LFS in forks).
 3. Run the `git lfs pull` command to load the LFS files. 
